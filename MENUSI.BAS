@@ -1,15 +1,15 @@
-1 ficheroDatos$ = "menusi.dat"
-2 tarjeta% = 0 : '0=UsifacII 1=M4
-3 '
-4 ' MENUSI (c) Gallegux 2022
-5 '
+1 dataFile$ = "menusi.dat"
+2 card% = 0 : '0=UsifacII 1=M4
+3 moveToRoot% = 1 : '0 or 1, move to root once files are loaded (40 and 50)
+7 '
+8 ' MENUSI (c) Gallegux 2022
+9 '
 10 himemant=HIMEM
 20 dirProg=&1800 : MEMORY dirProg-1
 30 LOAD"menusi.bin",dirProg
-40 LOAD ficheroDatos$,dirProg+&380
-45 MODE 2
-50 CALL dirProg
-60 'salida: &180D
+40 LOAD dataFile$,dirProg+&380
+44 if moveToRoot%=1 then |cdr
+50 MODE 2 : CALL dirProg : 'output at &180D
 70 res%=PEEK(dirProg+&D)
 80 IF res%=0 THEN CLS : MEMORY himemant : END
 84 PRINT res%
@@ -19,12 +19,12 @@
 91 ret$=CHR$(13)+CHR$(10)
 100 d%=PEEK(dir) : dir=dir+1
 110 IF d%=4 THEN PRINT ret$;"CPM" : |CPM
-115 GOSUB 1000 : 'obtener el argumento
+115 GOSUB 1000 : 'get the argument
 120 IF d%=2 THEN PRINT ret$;"CD ";arg$ : |CD,arg$
 130 IF d%=3 THEN PRINT ret$;"RUN ";arg$ : RUN arg$
 135 IF d%=5 THEN PRINT ret$;"SNAP ";arg$ : |SNA,arg$
-140 IF d%=1 AND tarjeta%=0 THEN PRINT ret$;"DSK ";arg$ : |MG,arg$ : |FDC
-145 IF d%=1 AND tarjeta%=1 THEN PRINT ret$;"DSK ";arg$ : |CD,arg$
+140 IF d%=1 AND card%=0 THEN PRINT ret$;"DSK ";arg$ : |MG,arg$ : |FDC
+145 IF d%=1 AND card%=1 THEN PRINT ret$;"DSK ";arg$ : |CD,arg$
 147 IF d%=6 THEN ret$;"USER ";arg$ : |USER,VAL(arg$)
 150 GOTO 100
 999 END
