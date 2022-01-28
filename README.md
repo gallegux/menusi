@@ -18,5 +18,7 @@ So, you can have several menus, for your programs, sports, arcades, cars, etc. u
 Copy your data file to your pendrive or SD card. Copy menusi.bas and menusi.bin if you don't have them on the pendrive or SD.
 In CPC execute run"menusi.bas"
 
+You can put the files in a folder other than the root and modify the bas file to add the |CDR (in Usifac) command once the files have been loaded into memory.
+
 ## Problems?  Suggestions?
 You can write to gallegux@hotmail.com
