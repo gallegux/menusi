@@ -22,3 +22,45 @@ You can put the files in a folder other than the root and modify the bas file to
 
 ## Problems?  Suggestions?
 You can write to gallegux@hotmail.com
+
+-------------------------------------------------------------------
+
+# menusi
+
+Lanzador para programas en UsifacII y en M4, y otras utilizades.
+
+## Cómo usarlo
+
+### Escribe un fichero CSV (texto plano) siguiendo el siguiente formato.
+
+Primer campo: nombre del programa
+Campos pares: tipo de orden para alcanzar el ejecutable
+  DSK: para montar una imagen dsk
+  DIR: para acceder a un directorio
+  RUN: para ejecutar un programa
+  CPM: para ejecutar el S.O. CPM (será necesario montar previamente un disco)
+  SANP: para abrir un fichero SNAP
+  USER: para acceder al usuario de un disco (será necesario montar previamente un disco)
+Campos impares (excepto el primero): argumento para el campo par anterior
+
+Ejemplo de fila:
+  La Abadia del Crimen;DIR;juegos;DSK;abadia.dsk;CPM
+
+### Usa una hoja de datos
+
+Una forma más fácil de mantener esta pequeña base de datos es con ayuda del fichero menusi_data.ods (LibreOffice).
+Para usarlo posteriormente hay que exportarlo usando ; como separador de campos y no incluyendo " en los campos.
+
+### Genera el fichero para Amstrad
+
+Ejecuta el fichero create_data_file.bat para generar el fichero de datos para Amstrad
+
+La sintaxis es:  create_data_file  fichero.csv menusi.dat
+
+### Copia los ficheros a la tarjeta SD o pendrive a usar con el Amstrad
+
+Los ficheros que se necesitan en el Amstrad son MENUSI.BAS, MENUSI.BIN y MENUSI.DAT y ejecuta MENUSI.BAS
+
+## Problemas? Sugerencias?
+
+Escribe un correo a gallegux@hotmail.com
