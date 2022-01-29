@@ -1,21 +1,19 @@
 1 dataFile$ = "menusi.dat"
 2 card% = 0 : '0=UsifacII 1=M4
-3 moveToRoot% = 1 : '0 or 1, move to root once files are loaded (40 and 50)
+3 'moveToRoot% = 1 : '0 or 1, move to root once files are loaded (40 and 50)
 7 '
 8 ' MENUSI (c) Gallegux 2022
 9 '
 10 himemant=HIMEM
-20 dirProg=&1800 : MEMORY dirProg-1
+20 dirProg=&1800 : dirData=&1AF0 : MEMORY dirProg-1
 30 LOAD"menusi.bin",dirProg
-40 LOAD dataFile$,dirProg+&380
-44 if moveToRoot%=1 then |cdr
-50 MODE 2 : CALL dirProg : 'output at &180D
-70 res%=PEEK(dirProg+&D)
-80 IF res%=0 THEN CLS : MEMORY himemant : END
-84 PRINT res%
-85 MEMORY himemant
-86 MODE 1
-90 dir=dirProg+&E
+40 LOAD dataFile$,dirData
+44 'IF moveToRoot%=1 THEN |CDR
+50 MODE 2 : CALL dirProg : 'output at &1809
+55 MEMORY himemant
+70 IF PEEK(&1844)=0 THEN CLS : END
+74 CLS
+75 dir=PEEK(&1845)+256*PEEK(&1846)
 91 ret$=CHR$(13)+CHR$(10)
 100 d%=PEEK(dir) : dir=dir+1
 110 IF d%=4 THEN PRINT ret$;"CPM" : |CPM
@@ -26,7 +24,7 @@
 140 IF d%=1 AND card%=0 THEN PRINT ret$;"DSK ";arg$ : |MG,arg$ : |FDC
 145 IF d%=1 AND card%=1 THEN PRINT ret$;"DSK ";arg$ : |CD,arg$
 147 IF d%=6 THEN ret$;"USER ";arg$ : |USER,VAL(arg$)
-150 GOTO 100
+200 GOTO 100
 999 END
 1000 arg$=""
 1010 c%=PEEK(dir)
