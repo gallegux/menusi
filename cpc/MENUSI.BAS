@@ -8,8 +8,8 @@
 20 dirProg=&1800 : dirData=&1AF0 : MEMORY dirProg-1
 30 LOAD"menusi.bin",dirProg
 40 LOAD dataFile$,dirData
-44 'IF moveToRoot%=1 THEN |CDR
-50 MODE 2 : CALL dirProg : 'output at &1809
+44 |CDR
+50 MODE 2 : CALL dirProg
 55 MEMORY himemant
 70 IF PEEK(&1844)=0 THEN CLS : END
 74 CLS
