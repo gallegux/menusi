@@ -1,7 +1,6 @@
 # menusi
 A menu launcher for UsifacII and M4.
 
-
 ## How to use
 
 **Write a CSV file** following the format of menusi_data.csv file. The format is very simple:
@@ -56,9 +55,8 @@ m.bas --> /
 So, when you enter to root of your USIFAC or M4, you just have write RUN"M.BAS
 
 
-## Resumen
+## Resume
 You can watch all the process in **diagram.png**
-
 
 ## Problems?  Suggestions?
 You can write to gallegux@hotmail.com
@@ -68,7 +66,6 @@ You can write to gallegux@hotmail.com
 
 # menusi
 Un menú lanzador para UsifacII y M4.
-
 
 ## Cómo usarlo
 
