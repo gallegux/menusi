@@ -1,66 +1,132 @@
 # menusi
-A launcher for UsifacII and M4, and other utilities
+A menu launcher for UsifacII and M4.
+
 
 ## How to use
-Write a CSV file following the format of menusi_data.csv file.
 
-Or fill the menusi_data.ods file following the format and instructions inside the file.
-Execute create_data_file.bat (requires Java 11 at least) with two arguments:
+**Write a CSV file** following the format of menusi_data.csv file. The format is very simple:
+
+- First field: name of program (it's recommended that it be no longer than 24 characters)
+- Even fields: kind or order to reach the runnable program
+  * DSK: to mount a disc image file (with USIFAC, like |MG) or to access to a disc image (M4)
+  * DSK2: to mount a second disc image file (with USIFAC, like |MG2) *not implemented yet*
+  * DSK3: to mount a third disc image file (with USIFAC, like |MG3) *not implemented yet*
+  * DSK4: to mount a fourth disc image file (with USIFAC, like |MG4) *not implemented yet*
+  * DIR: to access to a directory
+  * RUN: to run a program
+  * CPM: to run the CPM OS
+  * SNAP: to open a SNAP file
+  * USER: to access to the user of a disc
+- Odd fields (except the first one): argument to the previous field.
+
+Examples:
+
+`La Abadia del Crimen;DIR;juegos;DIR;abadia;DSK;abadia;CPM`
+
+I have that game in /juegos/abadia/abadia.dsk and I run it writing |CPM
+
+`Batman;DIR;juegos;DIR;batman3d;RUN;batman.bas`
+
+I have that game in /juegos/batman3d and I write RUN"BATMAN.BAS to run it.
+
+Remember that you have yo write the extension in USIFACII.
+
+Another way to maintain the CSV file is **using a ODS file** (I use LibreOffice Calc to do it).
+If you use it, you will have to export to CSV using **;** (semicolon) as separator.
+
+Anyway, you can watch the examples, **menusi_data.csv** and **menusi_data.ods**, that it has instructions inside.
+
+When you have the CSV file you have to **generate the data file for USIFAC**. 
+For that use **create_data_file.bat** with two arguments:
 - the csv file
-- data file for amstrad cpc (name with 8 characters)
+- data file for amstrad cpc (8+3 format)
 
 Example:
-create_data_file my_amstrad_games.csv MYGAMES.DAT
+`create_data_file.bat  my_amstrad_games.csv  MENUSI.DAT`
 
-Modify menusi.bas writing in the first line the name of the file generated.
+**Modify menusi.bas** writing in the first line the name of the file generated.
 So, you can have several menus, for your programs, sports, arcades, cars, etc. using several .bas files and one binary program.
 
-Copy your data file to your pendrive or SD card. Copy menusi.bas and menusi.bin if you don't have them on the pendrive or SD.
-In CPC execute run"menusi.bas"
+**Copy your data file** to your pendrive or SD card.
+menusi.bas --> /menusi/menusi.bas
+menusi.bin --> /menusi/menusi.bin
+MENUSI.DAT --> /menusi/menusi.dat
+m.bas --> /
 
-You can put the files in a folder other than the root and modify the bas file to add the |CDR (in Usifac) command once the files have been loaded into memory.
+So, when you enter to root of your USIFAC or M4, you just have write RUN"M.BAS
+
+
+## Resumen
+You can watch all the process in **diagram.png**
+
 
 ## Problems?  Suggestions?
 You can write to gallegux@hotmail.com
 
 -------------------------------------------------------------------
 
-# menusi
 
-Lanzador para programas en UsifacII y en M4, y otras utilizades.
+# menusi
+Un menú lanzador para UsifacII y M4.
+
 
 ## Cómo usarlo
 
-### Escribe un fichero CSV (texto plano) siguiendo el siguiente formato.
+**Escribe un archivo CSV** siguiendo el formato del archivo menusi_data.csv. El formato es muy simple:
 
-Primer campo: nombre del programa
-Campos pares: tipo de orden para alcanzar el ejecutable
-  DSK: para montar una imagen dsk
-  DIR: para acceder a un directorio
-  RUN: para ejecutar un programa
-  CPM: para ejecutar el S.O. CPM (será necesario montar previamente un disco)
-  SANP: para abrir un fichero SNAP
-  USER: para acceder al usuario de un disco (será necesario montar previamente un disco)
-Campos impares (excepto el primero): argumento para el campo par anterior
+- Primer campo: nombre del programa (se recomienda que no tenga más de 24 caracteres)
+- Campos pares: tipo de orden para llegar al programa ejecutable
+  * DSK: para montar un archivo de imagen de disco (con USIFAC, como |MG) o para acceder a una imagen de disco (M4)
+  * DSK2: para montar un segundo archivo de imagen de disco (con USIFAC, como |MG2) *aún no implementado*
+  * DSK3: para montar un tercer archivo de imagen de disco (con USIFAC, como |MG3) *todavía no implementado*
+  * DSK4: para montar un cuarto archivo de imagen de disco (con USIFAC, como |MG4) *aún no implementado*
+  * DIR: para acceder a un directorio
+  * RUN: para ejecutar un programa
+  * CPM: para ejecutar el sistema operativo CPM
+  * SNAP: para abrir un archivo SNAP
+  * USER: para acceder al usuario de un disco
+- Campos impares (excepto el primero): argumento del campo anterior.
 
-Ejemplo de fila:
-  La Abadia del Crimen;DIR;juegos;DSK;abadia.dsk;CPM
+Ejemplos:
 
-### Usa una hoja de datos
+`La Abadia del Crimen;DIR;juegos;DIR;abadia;DSK;abadia;CPM`
 
-Una forma más fácil de mantener esta pequeña base de datos es con ayuda del fichero menusi_data.ods (LibreOffice).
-Para usarlo posteriormente hay que exportarlo usando ; como separador de campos y no incluyendo " en los campos.
+Ese juego lo tengo en /juegos/abadia/abadia.dsk y lo ejecuto escribiendo |CPM
 
-### Genera el fichero para Amstrad
+`Batman;DIR;juegos;DIR;batman3d;RUN;batman.bas`
 
-Ejecuta el fichero create_data_file.bat para generar el fichero de datos para Amstrad
+Ese juego lo tengo en /juegos/batman3d y escribo RUN"BATMAN.BAS para ejecutarlo.
 
-La sintaxis es:  create_data_file  fichero.csv menusi.dat
+Recuerda que tienes que escribir la extensión en USIFACII.
 
-### Copia los ficheros a la tarjeta SD o pendrive a usar con el Amstrad
+Otra forma de mantener el archivo CSV es **usar un archivo ODS** (yo uso LibreOffice Calc para hacerlo).
+Si lo usas, tendrás que exportar a CSV usando **;** (punto y coma) como separador.
 
-Los ficheros que se necesitan en el Amstrad son MENUSI.BAS, MENUSI.BIN y MENUSI.DAT y ejecuta MENUSI.BAS
+De todos modos, puedes ver los ejemplos, **menusi_data.csv** y **menusi_data.ods**, que tiene instrucciones dentro.
 
-## Problemas? Sugerencias?
+Cuando tengas el archivo CSV, debes **generar el archivo de datos para USIFAC**.
+Para eso usa **create_data_file.bat** con dos argumentos:
+- el archivo csv
+- archivo de datos para amstrad cpc (formato 8+3)
 
-Escribe un correo a gallegux@hotmail.com
+Ejemplo:
+`create_data_file.bat my_amstrad_games.csv MENUSI.DAT`
+
+**Modificar menusi.bas** escribiendo en la primera línea el nombre del archivo generado.
+Así, puedes tener varios menús, para tus programas, juegos de deportes, juegos de arcade, coches, etc. usando varios archivos .bas y un único programa binario.
+
+**Copia tu archivo de datos** al pendrive o tarjeta SD.
+menusi.bas --> /menusi/menusi.bas
+menusi.bin --> /menusi/menusi.bin
+MENUSI.DAT --> /menusi/menusi.dat
+m.bas --> /
+
+Entonces, cuando entres a la raíz de su USIFAC o M4, solo debe escribir **RUN"M.BAS**
+
+
+## Resumen
+Puedes ver todo el proceso en **diagram.png**
+
+
+## ¿Problemas? ¿Sugerencias?
+Puedes escribir a gallegux@hotmail.com
