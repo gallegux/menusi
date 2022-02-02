@@ -8,15 +8,18 @@ A menu launcher for UsifacII and M4.
 - First field: name of program (it's recommended that it be no longer than 24 characters)
 - Even fields: kind or order to reach the runnable program
   * DSK: to mount a disc image file (with USIFAC, like |MG) or to access to a disc image (M4)
-  * DSK2: to mount a second disc image file (with USIFAC, like |MG2) *not implemented yet*
-  * DSK3: to mount a third disc image file (with USIFAC, like |MG3) *not implemented yet*
-  * DSK4: to mount a fourth disc image file (with USIFAC, like |MG4) *not implemented yet*
+  * DSK2: to mount a second disc image file (with USIFAC, like |MG2)
+  * DSK3: to mount a third disc image file (with USIFAC, like |MG3)
+  * DSK4: to mount a fourth disc image file (with USIFAC, like |MG4)
   * DIR: to access to a directory
   * RUN: to run a program
   * CPM: to run the CPM OS
   * SNAP: to open a SNAP file
   * USER: to access to the user of a disc
 - Odd fields (except the first one): argument to the previous field.
+
+##### Note:
+If you need mount several disk with USIFAC, mount the first one last end because after doing |MG it does |FDC
 
 Examples:
 
@@ -28,7 +31,11 @@ I have that game in /juegos/abadia/abadia.dsk and I run it writing |CPM
 
 I have that game in /juegos/batman3d and I write RUN"BATMAN.BAS to run it.
 
-Remember that you have yo write the extension in USIFACII.
+`Out Run;DIR;juegos;DIR;outrun;DSK2;outrun2.dsk;DSK;outrun1.dsk;RUN;outrun.bas`
+
+I put outrun1.dsk after outrun2.dsk.
+
+Remember that you have to write the extension in USIFACII (not neccesary with 6a version firmware).
 
 Another way to maintain the CSV file is **using a ODS file** (I use LibreOffice Calc to do it).
 If you use it, you will have to export to CSV using **;** (semicolon) as separator.
@@ -74,9 +81,9 @@ Un menú lanzador para UsifacII y M4.
 - Primer campo: nombre del programa (se recomienda que no tenga más de 24 caracteres)
 - Campos pares: tipo de orden para llegar al programa ejecutable
   * DSK: para montar un archivo de imagen de disco (con USIFAC, como |MG) o para acceder a una imagen de disco (M4)
-  * DSK2: para montar un segundo archivo de imagen de disco (con USIFAC, como |MG2) *aún no implementado*
-  * DSK3: para montar un tercer archivo de imagen de disco (con USIFAC, como |MG3) *todavía no implementado*
-  * DSK4: para montar un cuarto archivo de imagen de disco (con USIFAC, como |MG4) *aún no implementado*
+  * DSK2: para montar un segundo archivo de imagen de disco (con USIFAC, como |MG2)
+  * DSK3: para montar un tercer archivo de imagen de disco (con USIFAC, como |MG3)
+  * DSK4: para montar un cuarto archivo de imagen de disco (con USIFAC, como |MG4)
   * DIR: para acceder a un directorio
   * RUN: para ejecutar un programa
   * CPM: para ejecutar el sistema operativo CPM
@@ -94,7 +101,11 @@ Ese juego lo tengo en /juegos/abadia/abadia.dsk y lo ejecuto escribiendo |CPM
 
 Ese juego lo tengo en /juegos/batman3d y escribo RUN"BATMAN.BAS para ejecutarlo.
 
-Recuerda que tienes que escribir la extensión en USIFACII.
+`Out Run;DIR;juegos;DIR;outrun;DSK2;outrun2.dsk;DSK;outrun1.dsk;RUN;outrun.bas`
+
+Pongo `DSK;outrun1.dsk` después de `DSK2;outrun2.dsk`
+
+Recuerda que tienes que escribir la extensión en USIFACII (no es necesario con la versión 6a del firmware).
 
 Otra forma de mantener el archivo CSV es **usar un archivo ODS** (yo uso LibreOffice Calc para hacerlo).
 Si lo usas, tendrás que exportar a CSV usando **;** (punto y coma) como separador.
