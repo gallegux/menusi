@@ -1,4 +1,4 @@
-1 dataFile$ = "menusi.dat"
+1 dataFile$ = "menu1.dat"
 2 card% = 0 : '0=UsifacII 1=M4
 7 '
 8 ' MENUSI (c) Gallegux 2022
@@ -6,14 +6,13 @@
 10 himemant=HIMEM
 20 MEMORY &1800-1
 30 LOAD"menusi.bin",&1800
-40 LOAD dataFile$,&1AF0
-44 GOSUB 1100
 50 MODE 2
-52 CALL &1800
+52 CALL &1800,dataFile$+CHR$(0)
 55 MEMORY himemant
-70 IF PEEK(&1844)=0 THEN CLS : END
-75 CLS
-80 dir=PEEK(&1845)+256*PEEK(&1846)
+60 GOSUB 1100
+65 CLS
+70 IF PEEK(&1846)=0 THEN END
+80 dir=PEEK(&1847)+256*PEEK(&1848)
 90 ret$=CHR$(13)+CHR$(10)
 100 d%=PEEK(dir) : dir=dir+1
 110 IF d%=4 THEN PRINT ret$;"CPM" : |CPM
@@ -27,6 +26,7 @@
 155 IF d%=7 AND card%=0 THEN PRINT ret$;"DSK2 ";arg$ : |MG2,arg$
 160 IF d%=8 AND card%=0 THEN PRINT ret$;"DSK3 ";arg$ : |MG3,arg$
 165 IF d%=9 AND card%=0 THEN PRINT ret$;"DSK4 ";arg$ : |MG4,arg$
+190 IF d%>31 THEN PRINT"No run":END
 200 GOTO 100
 999 END
 1000 'get the argument'
