@@ -5,7 +5,7 @@ A menu launcher for UsifacII and M4.
 
 **Write a CSV file** following the format of menusi_data.csv file. The format is very simple:
 
-- First field: name of program (it's recommended that it be no longer than 24 characters)
+- First field: name of program or menu (it's recommended that it be no longer than 24 characters). If the the name is a menu it must start with **>** (greather than character).
 - Even fields: kind or order to reach the runnable program
   * DSK: to mount a disc image file (with USIFAC, like |MG) or to access to a disc image (M4)
   * DSK2: to mount a second disc image file (with USIFAC, like |MG2)
@@ -16,6 +16,7 @@ A menu launcher for UsifacII and M4.
   * CPM: to run the CPM OS
   * SNAP: to open a SNAP file
   * USER: to access to the user of a disc
+  * MENU: to show other menu content (other file)
 - Odd fields (except the first one): argument to the previous field.
 
 ##### Note:
@@ -23,17 +24,13 @@ If you need mount several disk with USIFAC, mount the first one last end because
 
 Examples:
 
-`La Abadia del Crimen;DIR;juegos;DIR;abadia;DSK;abadia;CPM`
+`La Abadia del Crimen;DIR;juegos;DIR;abadia;DSK;abadia;CPM`  I have that game in /juegos/abadia/abadia.dsk and I run it writing |CPM
 
-I have that game in /juegos/abadia/abadia.dsk and I run it writing |CPM
+`Batman;DIR;juegos;DIR;batman3d;RUN;batman.bas`  I have that game in /juegos/batman3d and I write RUN"BATMAN.BAS to run it.
 
-`Batman;DIR;juegos;DIR;batman3d;RUN;batman.bas`
+`Out Run;DIR;juegos;DIR;outrun;DSK2;outrun2.dsk;DSK;outrun1.dsk;RUN;outrun.bas`  I put outrun1.dsk after outrun2.dsk.
 
-I have that game in /juegos/batman3d and I write RUN"BATMAN.BAS to run it.
-
-`Out Run;DIR;juegos;DIR;outrun;DSK2;outrun2.dsk;DSK;outrun1.dsk;RUN;outrun.bas`
-
-I put outrun1.dsk after outrun2.dsk.
+`> My favourites games;MENU;favgames.dat`  A link to other menu defined in other file.
 
 Remember that you have to write the extension in USIFACII (not neccesary with 6a version firmware).
 
@@ -78,7 +75,7 @@ Un menú lanzador para UsifacII y M4.
 
 **Escribe un archivo CSV** siguiendo el formato del archivo menusi_data.csv. El formato es muy simple:
 
-- Primer campo: nombre del programa (se recomienda que no tenga más de 24 caracteres)
+- Primer campo: nombre del programa o submenú (se recomienda que no tenga más de 24 caracteres). Si es un menú debe empezar con **>** (carácter mayor que).
 - Campos pares: tipo de orden para llegar al programa ejecutable
   * DSK: para montar un archivo de imagen de disco (con USIFAC, como |MG) o para acceder a una imagen de disco (M4)
   * DSK2: para montar un segundo archivo de imagen de disco (con USIFAC, como |MG2)
@@ -89,21 +86,18 @@ Un menú lanzador para UsifacII y M4.
   * CPM: para ejecutar el sistema operativo CPM
   * SNAP: para abrir un archivo SNAP
   * USER: para acceder al usuario de un disco
+  * MENU: para mostrar el contenido de otro menú (de otro fichero)
 - Campos impares (excepto el primero): argumento del campo anterior.
 
 Ejemplos:
 
-`La Abadia del Crimen;DIR;juegos;DIR;abadia;DSK;abadia;CPM`
+`La Abadia del Crimen;DIR;juegos;DIR;abadia;DSK;abadia;CPM`  Ese juego lo tengo en /juegos/abadia/abadia.dsk y lo ejecuto escribiendo |CPM
 
-Ese juego lo tengo en /juegos/abadia/abadia.dsk y lo ejecuto escribiendo |CPM
+`Batman;DIR;juegos;DIR;batman3d;RUN;batman.bas`  Ese juego lo tengo en /juegos/batman3d y escribo RUN"BATMAN.BAS para ejecutarlo.
 
-`Batman;DIR;juegos;DIR;batman3d;RUN;batman.bas`
+`Out Run;DIR;juegos;DIR;outrun;DSK2;outrun2.dsk;DSK;outrun1.dsk;RUN;outrun.bas`  Pongo `DSK;outrun1.dsk` después de `DSK2;outrun2.dsk`
 
-Ese juego lo tengo en /juegos/batman3d y escribo RUN"BATMAN.BAS para ejecutarlo.
-
-`Out Run;DIR;juegos;DIR;outrun;DSK2;outrun2.dsk;DSK;outrun1.dsk;RUN;outrun.bas`
-
-Pongo `DSK;outrun1.dsk` después de `DSK2;outrun2.dsk`
+`> Mis juegos;MENU;favgames.dat`  Un enlace a otro menú definido en otro fichero.
 
 Recuerda que tienes que escribir la extensión en USIFACII (no es necesario con la versión 6a del firmware).
 
