@@ -58,9 +58,15 @@ m.bas --> /
 
 So, when you enter to root of your USIFAC or M4, you just have write RUN"M.BAS
 
-
-## Resume
+### Resume
 You can watch all the process in **diagram.png**
+
+## Running the program on CPC
+Place on **/** and write `run"m.bas`. The keys that you can use are:
+- Cursor keys: move the cursor that selects a program
+- Enter: execute the selectec program
+- Del: go back to previous menu (if it exists)
+- Esc: exit
 
 ## Problems?  Suggestions?
 You can write to gallegux@hotmail.com
@@ -125,9 +131,15 @@ m.bas --> /
 
 Entonces, cuando entres a la raíz de su USIFAC o M4, solo debe escribir **RUN"M.BAS**
 
-
 ## Resumen
 Puedes ver todo el proceso en **diagram.png**
+
+## Ejecutar el programa en el CPC
+Sitúate en **/** y escribe `run"m.bas`. Las teclas que puedes usar son:
+- Teclas del cursor: mover el cursor que selecciona un programa
+- Enter: ejecutar el programa seleccionado
+- Del: volver al menú anterior (si es que lo hay)
+- Esc: salir
 
 
 ## ¿Problemas? ¿Sugerencias?
