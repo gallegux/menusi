@@ -41,11 +41,14 @@ Anyway, you can watch the examples, **menusi_data.csv** and **menusi_data.ods**,
 
 When you have the CSV file you have to **generate the data file for USIFAC**. 
 For that use **create_data_file.bat** with two arguments:
-- the csv file
-- data file for amstrad cpc (8+3 format)
+- the CSV file
+- data file for Amstrad cpc (8+3 format)
 
 Example:
 `create_data_file.bat  my_amstrad_games.csv  MENUSI.DAT`
+
+##### Important:
+The maximum file size is 35.325 bytes. If you use a greater file the system won't work correctly.
 
 **Modify menusi.bas** writing in the first line the name of the file generated.
 So, you can have several menus, for your programs, sports, arcades, cars, etc. using several .bas files and one binary program.
@@ -119,6 +122,9 @@ Para eso usa **create_data_file.bat** con dos argumentos:
 
 Ejemplo:
 `create_data_file.bat my_amstrad_games.csv MENUSI.DAT`
+
+##### Importante:
+El tamaño máximo del fichero es 35.325 bytes. Si usas uno más grande el sistema no funcionará correctamente.
 
 **Modificar menusi.bas** escribiendo en la primera línea el nombre del archivo generado.
 Así, puedes tener varios menús, para tus programas, juegos de deportes, juegos de arcade, coches, etc. usando varios archivos .bas y un único programa binario.
