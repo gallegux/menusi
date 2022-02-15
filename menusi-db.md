@@ -1,4 +1,10 @@
-# menusi-db - menusi database simple manager
+# menusi-db   -   menusi database simple manager
+
+
+## What is it?
+
+It's a program to manage the menusi database files from Amstrad CPC, removing the needing to use the PC when you want to add or remove a few registers.
+It's made up of MENUSIDB.BIN and MENUSIDB.BAS. The best place is together MENUSI.
 
 
 ## Options:
@@ -16,10 +22,17 @@ Search registers by its name. You have to enter the start of register (case sens
 
 ### 3-Insert
 
-Insert a register in the database. You have to introduce the name of the register and the commans as you did in the CSV file. For example
+Insert a register in the database. You have to introduce the name of the register and the commans as you did in the CSV file. Examples:
 
+```
 Name? La Abadia del Crimen
 Commands? dir;juegos;dir;abadia;dsk;abadia.dsk;cpm
+```
+
+```
+Name? Batman 3D
+Commands? dir;juegos;dir;batman3d;run;batman.bas
+```
 
 The register will be entered in alphabetical order.
 
