@@ -16,8 +16,8 @@ A menu launcher for UsifacII and M4.
   * CPM: to run the CPM OS
   * SNAP: to open a SNAP file
   * USER: to access to the user of a disc
-  * MENU: to show other menu content (other file)
-- Odd fields (except the first one): argument to the previous field.
+  * MENU: to show other menu content (defined in other file)
+- Odd fields (except the first one): argument to the previous field, except for CPM.
 
 ##### Note:
 If you need mount several disk with USIFAC, mount the first one last end because after doing |MG it does |FDC
@@ -48,7 +48,8 @@ Example:
 `create_data_file.bat  my_amstrad_games.csv  MENUSI.DAT`
 
 ##### Important:
-The maximum file size is 35.325 bytes. If you use a greater file the system won't work correctly.
+- The maximum file size is 35.325 bytes. If you use a greater file the system won't work correctly.
+- The lines in the CSV file must be well. The last word must be **cpm** or the name of the program after **run**. A line ended with `dir` or `run` (for example) will do the program crashes.
 
 **Modify menusi.bas** writing in the first line the name of the file generated.
 So, you can have several menus, for your programs, sports, arcades, cars, etc. using several .bas files and one binary program.
@@ -95,8 +96,8 @@ Un menú lanzador para UsifacII y M4.
   * CPM: para ejecutar el sistema operativo CPM
   * SNAP: para abrir un archivo SNAP
   * USER: para acceder al usuario de un disco
-  * MENU: para mostrar el contenido de otro menú (de otro fichero)
-- Campos impares (excepto el primero): argumento del campo anterior.
+  * MENU: para mostrar el contenido de otro menú (definido en otro fichero)
+- Campos impares (excepto el primero): argumento del campo anterior, excepto para CPM.
 
 Ejemplos:
 
@@ -124,7 +125,8 @@ Ejemplo:
 `create_data_file.bat my_amstrad_games.csv MENUSI.DAT`
 
 ##### Importante:
-El tamaño máximo del fichero es 35.325 bytes. Si usas uno más grande el sistema no funcionará correctamente.
+- El tamaño máximo del fichero es 35.325 bytes. Si usas uno más grande el sistema no funcionará correctamente.
+- Las líneas en el fichero CSV debes estar bien formadas. Las última palabra debe se **cpm** o el nombre del probrama después de **run**. Una línea acabada en `dir` o `run` (por ejemplo) hará que el programa no funcione, e incluso cuelgue el ordenador.
 
 **Modificar menusi.bas** escribiendo en la primera línea el nombre del archivo generado.
 Así, puedes tener varios menús, para tus programas, juegos de deportes, juegos de arcade, coches, etc. usando varios archivos .bas y un único programa binario.
