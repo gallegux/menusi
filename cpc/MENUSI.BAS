@@ -1,4 +1,4 @@
-1 dataFile$ = "menu1.dat"
+1 dataFile$ = "menusi.dat"
 2 card% = 0 : '0=UsifacII 1=M4
 7 '
 8 ' MENUSI (c) Gallegux 2022
