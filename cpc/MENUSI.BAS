@@ -39,4 +39,3 @@
 1110 IF card%=0 THEN |CD
 1120 IF card%=1 THEN aux$="..":|CD,@aux$
 1130 RETURN
-
