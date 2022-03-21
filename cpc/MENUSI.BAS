@@ -3,13 +3,14 @@
 7 '
 8 ' MENUSI (c) Gallegux 2022
 9 '
-10 himemant=HIMEM
+10 gosub 1200
+15 himemant=HIMEM
 20 MEMORY &1800-1
 30 LOAD"menusi.bin",&1800
 50 MODE 2
 51 dataFile$=dataFile$+CHR$(0)
 52 CALL &1800,@dataFile$
-55 MEMORY himemant
+55 'MEMORY himemant
 60 GOSUB 1100
 65 CLS
 70 IF PEEK(&1846)=0 THEN END
@@ -39,3 +40,27 @@
 1110 IF card%=0 THEN |CD
 1120 IF card%=1 THEN aux$="..":|CD,@aux$
 1130 RETURN
+
+1200 'help'
+1204 mode 1 : ink 1,25 : ink 2,23 : ink 3,18 : vi$=chr$(24)
+1210 pen 3: print vi$;"                    "
+1212 print " MENUSI 0.5b - Help "
+1213 print "                    ";vi$
+1215 print:print
+1220 pen 1: print "Cursor keys"
+1221 pen 2: print "  Move the selector"
+1225 print
+1230 pen 1: print "ENTER"
+1231 pen 2: print "  Launch the selected program"
+1232 print "  OR show the selected menu"
+1235 print
+1240 pen 1: print "DEL"
+1241 pen 2: print "  Go back to previous menu"
+1245 print
+1250 pen 1: print "ESC"
+1251 pen 2: print "  Exit"
+1260 print:print:print
+1265 pen 3: print " Press any key to continue "
+1270 while inkey$="":wend
+1280 return
+
