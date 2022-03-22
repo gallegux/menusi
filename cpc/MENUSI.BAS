@@ -3,7 +3,7 @@
 7 '
 8 ' MENUSI (c) Gallegux 2022
 9 '
-10 GOSUB 1200
+10 '
 11 ver%=PEEK(6) : v464%=128 : v6128%=145
 15 himemant=HIMEM
 20 MEMORY &1800-1
@@ -41,28 +41,6 @@
 1110 IF card%=0 THEN |CD
 1120 IF card%=1 THEN aux$="..":|CD,@aux$
 1130 RETURN
-1200 'help'
-1204 MODE 1 : INK 1,25 : INK 2,23 : INK 3,18 : vi$=CHR$(24)
-1210 PEN 3: PRINT vi$;"                    "
-1212 PRINT " MENUSI 0.4b - Help "
-1213 PRINT "                    ";vi$
-1215 PRINT:PRINT
-1220 PEN 1: PRINT "Cursor keys"
-1221 PEN 2: PRINT "  Move the selector"
-1225 PRINT
-1230 PEN 1: PRINT "ENTER"
-1231 PEN 2: PRINT "  Launch the selected program"
-1232 PRINT "  OR show the selected menu"
-1235 PRINT
-1240 PEN 1: PRINT "DEL"
-1241 PEN 2: PRINT "  Go back to previous menu"
-1245 PRINT
-1250 PEN 1: PRINT "ESC"
-1251 PEN 2: PRINT "  Exit"
-1260 PRINT:PRINT:PRINT
-1265 PEN 3: PRINT "Press any key to continue"
-1270 WHILE INKEY$="":WEND
-1280 RETURN
 1300 'run for 464'
 1305 MODE 1
 1310 PEN 1: PRINT "Type ";
