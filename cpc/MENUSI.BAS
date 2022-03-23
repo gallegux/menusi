@@ -4,7 +4,7 @@
 8 ' MENUSI (c) Gallegux 2022
 9 '
 10 '
-11 ver%=PEEK(6) : v464%=128 : v6128%=145
+11 ver%=PEEK(6) : v464%=128 : v6128%=145 : disco%=0
 15 himemant=HIMEM
 20 MEMORY &1800-1
 30 LOAD"menusi.bin",&1800
@@ -20,10 +20,10 @@
 100 d%=PEEK(dir) : dir=dir+1
 110 IF d%=4 THEN PRINT ret$;"CPM" : |CPM
 115 GOSUB 1000
-125 IF d%=1 AND card%=0 THEN PRINT ret$;"DSK ";arg$ : |MG,@arg$ : IF ver%=v6128% THEN |FDC ELSE |DOS,2
+125 IF d%=1 AND card%=0 THEN PRINT ret$;"DSK ";arg$ : disco%=1 : |MG,@arg$ : IF ver%=v6128% THEN |FDC ELSE |DOS,2
 130 IF d%=1 AND card%=1 THEN PRINT ret$;"DSK ";arg$ : |CD,@arg$
 135 IF d%=2 THEN PRINT ret$;"CD ";arg$ : |CD,@arg$
-140 IF d%=3 THEN IF ver%=v464% GOTO 1300 ELSE PRINT ret$;"RUN ";arg$ : RUN arg$
+140 IF d%=3 THEN IF card%=0 AND ver%=v464% AND disco%=1 THEN GOTO 1300 ELSE PRINT ret$;"RUN ";arg$ : RUN arg$
 145 IF d%=5 THEN PRINT ret$;"SNAP ";arg$ : |SNA,@arg$
 150 IF d%=6 THEN ret$;"USER ";arg$ : |USER,VAL(arg$)
 155 IF d%=7 AND card%=0 THEN PRINT ret$;"DSK2 ";arg$ : |MG2,@arg$
