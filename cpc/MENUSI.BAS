@@ -1,16 +1,13 @@
-1 dataFile$ = "menusi.dat"
-2 card% = 0 : '0=UsifacII 1=M4
-7 '
-8 ' MENUSI (c) Gallegux 2022
-9 '
-10 '
-11 ver%=PEEK(6) : v464%=128 : v6128%=145 : disco%=0
-15 himemant=HIMEM
-20 MEMORY &1800-1
-30 LOAD"menusi.bin",&1800
-50 MODE 2
-51 dataFile$=dataFile$+CHR$(0)
-52 CALL &1800,@dataFile$
+1 '---------------------------
+2 ' MENUSI  (c) Gallegux 2022
+3 '---------------------------
+20 himemant=HIMEM : MEMORY &1800-1 : LOAD"menusi.bin",&1800
+25 dataFile$ = "menusi.dat"
+30 ver%=PEEK(6) : v464%=128 : v6128%=145 : disco%=0
+35 IF INP(&FBD8)=255 THEN card%=1 ELSE card%=0 : '0=UsifacII 1=M4
+40 MODE 2
+45 dataFile$=dataFile$+CHR$(0)
+50 CALL &1800,@dataFile$
 55 MEMORY himemant
 60 GOSUB 1100
 65 CLS
