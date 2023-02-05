@@ -4,6 +4,7 @@
 - The new CPC files are stored in a pendrive or SD card with the the PC application.
 - Some bugs correted in CPC files.
 - Help included.
+- Download MMM_v2b.jar (compiled with Java14)
 
 ---------------------------------------------
 
