@@ -1,3 +1,12 @@
+# MMM (Menusi Menu Maker)
+
+- PC application to create the menus instead editing a text file.
+- The new CPC files are stored in a pendrive or SD card with the the PC application.
+- Some bugs correted in CPC files.
+- Help included.
+
+---------------------------------------------
+
 # menusi
 A menu launcher for UsifacII and M4.
 
